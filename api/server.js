@@ -9,8 +9,8 @@ server.use(middlewares)
 server.use(
   jsonServer.rewriter({
     "/*": "/$1",
-    "/turnos/:category/:turno": "/turnos?category=:category&numero=:turno",
-    "/turnos/:category": "/turnos?category=:category",
+    "/turnos/:categoria/:turno": "/turnos?categoria=:categoria&numero=:numero",
+    "/turnos/:categoria": "/turnos?categoria=:categoria",
     "/turnos/:id": "/turnos/:id",
   })
 );
