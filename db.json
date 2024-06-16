@@ -116,6 +116,16 @@
       "numero": 81,
       "nombre": "Juli",
       "estado": "en espera"
+    },
+    {
+      "fecha": "4/06/2024",
+      "hora": "10:00",
+      "categoria": "perros",
+      "numero": 1,
+      "nombre": "Juan",
+      "estado": "en espera",
+      "__v": 0,
+      "id": "Qxp_GgU"
     }
   ]
 }
