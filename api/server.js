@@ -8,10 +8,10 @@ server.use(middlewares)
 // Add this before server.use(router)
 server.use(
   jsonServer.rewriter({
-    "/*": "/$1",
-    "/turnos/:categoria/:turno": "/turnos?categoria=:categoria&numero=:numero",
-    "/turnos/:categoria": "/turnos?categoria=:categoria",
-    "/turnos/:id": "/turnos/:id",
+    "/turnos/:id": "/turnos/:id", // Manejar solicitudes por ID
+    "/turnos/categoria/:categoria": "/turnos?categoria=:categoria", // Manejar solicitudes por categoría
+    "/turnos/categoria/:categoria/numero/:numero":
+      "/turnos?categoria=:categoria&numero=:numero", // Manejar solicitudes por categoría y número
   })
 );
 server.use(router)
