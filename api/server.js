@@ -6,10 +6,14 @@ const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
 // Add this before server.use(router)
-server.use(jsonServer.rewriter({
-    '/api/*': '/$1',
-    '/product/:resource/:id/show': '/:resource/:id'
-}))
+server.use(
+  jsonServer.rewriter({
+    "/*": "/$1",
+    "/turnos/:category/:turno": "/turnos?category=:category&numero=:turno",
+    "/turnos/:category": "/turnos?category=:category",
+    "/turnos/:id": "/turnos/:id",
+  })
+);
 server.use(router)
 server.listen(3000, () => {
     console.log('JSON Server is running')
