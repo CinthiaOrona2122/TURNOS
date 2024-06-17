@@ -1,10 +1,10 @@
 // See https://github.com/typicode/json-server#module
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
+const jsonServer = require("json-server");
+const server = jsonServer.create();
+const router = jsonServer.router("db.json");
+const middlewares = jsonServer.defaults();
 
-server.use(middlewares)
+server.use(middlewares);
 // Add this before server.use(router)
 server.use(
   jsonServer.rewriter({
@@ -12,12 +12,13 @@ server.use(
     "/turnos/categoria/:categoria": "/turnos?categoria=:categoria", // Manejar solicitudes por categoría
     "/turnos/categoria/:categoria/numero/:numero":
       "/turnos?categoria=:categoria&numero=:numero", // Manejar solicitudes por categoría y número
+    "/turnos/fecha/:fecha": "/turnos?fecha=:fecha", // Manejar solicitudes por fecha
   })
 );
-server.use(router)
+server.use(router);
 server.listen(3000, () => {
-    console.log('JSON Server is running')
-})
+  console.log("JSON Server is running");
+});
 
 // Export the Server API
-module.exports = server
+module.exports = server;
